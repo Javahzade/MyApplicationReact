@@ -1,97 +1,40 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, {Component} from 'react';
+import {SafeAreaView} from 'react-native';
+import Entry from './component/Title/Entry';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  TextInput,
-  Image,
-} from 'react-native';
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
 
-const styles = StyleSheet.create({
-  logo: {
-    width: 130,
-    height: 130,
-  },
-  input1: {
-    borderWidth: 0.5,
-    height: 40,
-    borderTopColor: 'white',
-    borderLeftColor: 'white',
-    borderRightColor: 'white',
-    borderBottomColor: 'gray',
-  },
-  input2: {
-    borderWidth: 0.5,
-    height: 40,
-    borderTopColor: 'gray',
-    borderLeftColor: 'white',
-    borderRightColor: 'white',
-    borderBottomColor: 'white',
-  },
-  text1: {
-    backgroundColor: '#006eff',
-    color: 'white',
-    height: 50,
-  },
-  text2: {
-    backgroundColor: '#5bc73a',
-    color: 'white',
-    height: 50,
-  },
-  text3: {
-    height: 50,
-  },
-});
+  mailType = str => {
+    this.setState({
+      email: str,
+    });
+  };
 
-class App extends React.Component {
+  passType = str => {
+    this.setState({
+      password: str,
+    });
+  };
+
   render() {
+    const {email, password} = this.state;
     return (
-      <View>
-        <Image
-          style={styles.logo}
-          source={require('./img/messenger_logo.png')}
+      <SafeAreaView style={{flex: 1}}>
+        <Entry
+          mailType={this.mailType}
+          passType={this.passType}
+          email={email}
+          password={password}
         />
-        <TextInput
-          style={styles.input1}
-          onChangeText={email => this.setState({email})}
-          placeholder="Email"
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={styles.input2}
-          onChangeText={password => this.setState({password})}
-          placeholder="Password"
-          autoCapitalize="none"
-          autoCorrect={false}
-          secureTextEntry={true}
-        />
-        <Text style={styles.text1}>ВОЙТИ</Text>
-        <Text style={styles.text2}>СОЗДАТЬ НОВЫЙ АККАУНТ</Text>
-        <Text style={styles.text3}>Забыли пароль?</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }
-
-export default App;
