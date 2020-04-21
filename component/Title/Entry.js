@@ -8,6 +8,7 @@ import {
   Image,
 } from 'react-native';
 import {entryStyles} from './style/titleStyle';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Entry = props => {
   const {
@@ -21,13 +22,14 @@ const Entry = props => {
     forgot,
     text,
   } = entryStyles;
-  const {password, email, mailType, passType} = props;
+  const {password, email, mailType, passType, onPress} = props;
   return (
+      <KeyboardAvoidingView behavior="padding" enabled={false} keyboardVerticalOffset={200} style={userCont}>
+        <ScrollView style={{flex: 1}}>
     <View style={{flex: 1}}>
       <View style={imgCont}>
         <Image style={logo} source={require('../../img/messenger_logo.png')} />
-      </View>
-      <KeyboardAvoidingView behavior="height" enabled={false} style={userCont}>
+      </View >
         <TextInput
           style={mail}
           onChangeText={str => mailType(str)}
@@ -46,7 +48,7 @@ const Entry = props => {
           autoCorrect={false}
           secureTextEntry={true}
         />
-        <TouchableOpacity style={enter}>
+        <TouchableOpacity onPress={onPress} style={enter}>
           <Text style={text}>ВОЙТИ</Text>
         </TouchableOpacity>
         <TouchableOpacity style={create}>
@@ -55,8 +57,9 @@ const Entry = props => {
         <TouchableOpacity style={forgot}>
           <Text style={[text, {color: 'black'}]}>ЗАБЫЛИ ПАРОЛЬ?</Text>
         </TouchableOpacity>
-      </KeyboardAvoidingView>
     </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
   );
 };
 export default Entry;

@@ -12,10 +12,24 @@ export default class App extends Component {
     };
   }
 
+  onPress = () => {
+    const mail = 'admin';
+    const pass = 'admin';
+    const {email, password} = this.state;
+    if (email&&password){
+    if (mail == email && pass == password) {
+      console.log('Success');
+    }else {
+      alert('Username or password is wrong!');
+    }
+  }else return alert('vvedite dannie')
+}
+
   mailType = str => {
     this.setState({
       email: str,
     });
+
   };
 
   passType = str => {
@@ -31,6 +45,7 @@ export default class App extends Component {
         <Entry
           mailType={this.mailType}
           passType={this.passType}
+          onPress={this.onPress}
           email={email}
           password={password}
         />
