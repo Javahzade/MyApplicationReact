@@ -9,8 +9,8 @@ const Tab = createBottomTabNavigator();
 export const TabBar = () => {
   return (
     <Tab.Navigator style={tabStyle.container}>
-      <Tab.Screen name="Chat" component={chatScreen} />
-      <Tab.Screen name="Contacts" component={contactScreen} />
+      <Tab.Screen name="Чаты" component={chatScreen} />
+      <Tab.Screen name="Контакты" component={contactScreen} />
     </Tab.Navigator>
   );
 };

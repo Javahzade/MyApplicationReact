@@ -10,7 +10,7 @@ export default class App extends Component {
     this.state = {
       email: '',
       password: '',
-      isLogin: false,
+      isLogin: true,
     };
   }
 
@@ -24,10 +24,10 @@ export default class App extends Component {
           isLogin: true,
         });
       } else {
-        return alert('Your Username or Userpassword is wrong');
+        return alert('Ваш Username или Userpassword неправильный');
       }
     } else {
-      return alert('Enter your Username or Userpassword');
+      return alert('Введите Username или Userpassword');
     }
   };
 

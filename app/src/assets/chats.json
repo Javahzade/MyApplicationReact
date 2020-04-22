@@ -1,0 +1,9 @@
+{
+	"chatData" : [
+		{"name" : "Elmar m.", "chat" : "У меня вопрос","image" : "https://261426.selcdn.ru/cheapscales/3193/noimage.jpg"},
+		{"name" : "Samir", "chat" : "Привет", "image" : "https://studioesmeralda.files.wordpress.com/2011/05/dsc_4187.jpg"},
+        {"name" : "Rahid", "chat" : "Привет", "image" : "https://261426.selcdn.ru/cheapscales/3193/noimage.jpg"},
+        {"name" : "Aylin", "chat" : "Привет", "image" : "https://261426.selcdn.ru/cheapscales/3193/noimage.jpg"},
+        {"name" : "Wilson", "chat" : "Привет", "image" : "https://i.pinimg.com/originals/19/d8/06/19d806fc7d59eaebe1f9150e660cd4fc.png"}
+	]
+}
