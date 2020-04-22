@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const entryStyles = StyleSheet.create({
+export const titleStyle = StyleSheet.create({
   imgCont: {
     flex: 2,
     justifyContent: 'center',
