@@ -50,3 +50,4 @@ export const titleStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+

@@ -31,8 +31,12 @@ export const chatStyle = StyleSheet.create({
     margin: 15,
   },
   chatTitle: {
-    alignSelf: 'center',
     fontSize: 20,
+    fontWeight: 'bold',
+  },
+  chatText: {
+    fontSize: 14,
     fontWeight: 'normal',
+    opacity: 0.5,
   },
 });

@@ -33,6 +33,6 @@ export const contactStyle = StyleSheet.create({
   chatTitle: {
     alignSelf: 'center',
     fontSize: 20,
-    fontWeight: 'normal',
+    fontWeight: 'bold',
   },
 });
