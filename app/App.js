@@ -10,7 +10,7 @@ export default class App extends Component {
     this.state = {
       email: '',
       password: '',
-      isLogin: false,
+      isLogin: true,
     };
   }
 

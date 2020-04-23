@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 export const chatStyle = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
   title: {
     alignSelf: 'center',
@@ -21,7 +22,8 @@ export const chatStyle = StyleSheet.create({
     fontSize: 14,
     height: 35,
     margin: 15,
-    marginTop: 0,
+    marginTop: 5,
+    marginBottom: 0,
     backgroundColor: '#d4d4d4',
   },
   chatImg: {
@@ -38,5 +40,26 @@ export const chatStyle = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'normal',
     opacity: 0.5,
+  },
+});
+
+export const headerStyle = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    padding: 10,
+    backgroundColor: 'white',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  img: {
+    height: 40,
+    width: 40,
+    borderRadius: 50,
+    marginLeft: 5,
+    marginRight: 15,
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: 'bold',
   },
 });

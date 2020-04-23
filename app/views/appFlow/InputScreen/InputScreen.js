@@ -6,10 +6,8 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  ImageBackground,
 } from 'react-native';
 import {titleStyle} from '../../../components/titleStyle';
-import {ScrollView} from 'react-native-gesture-handler';
 
 const InputScreen = props => {
   const {

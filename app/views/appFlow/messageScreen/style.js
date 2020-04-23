@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export const contactStyle = StyleSheet.create({
+export const messageStyle = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
@@ -22,8 +22,7 @@ export const contactStyle = StyleSheet.create({
     fontSize: 14,
     height: 35,
     margin: 15,
-    marginBottom: 0,
-    marginTop: 5,
+    marginTop: 0,
     backgroundColor: '#d4d4d4',
   },
   chatImg: {
@@ -33,9 +32,22 @@ export const contactStyle = StyleSheet.create({
     margin: 15,
   },
   chatTitle: {
-    alignSelf: 'center',
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  chatText: {
+    fontSize: 14,
+    fontWeight: 'normal',
+    opacity: 0.5,
+  },
+  message: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+  messageView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -47,15 +59,19 @@ export const headerStyle = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  button: {
+    height: 20,
+    width: 20,
+    marginRight: 15,
+  },
   img: {
     height: 40,
     width: 40,
     borderRadius: 50,
-    marginLeft: 5,
     marginRight: 15,
   },
   text: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: 'bold',
   },
 });

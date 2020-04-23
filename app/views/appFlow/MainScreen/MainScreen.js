@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {TabBar} from '../../../modules/navigation/tabBarNavigator';
+import {MainStack} from '../../../modules/navigation/stackNavigator';
 
 export default class MainScreen extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class MainScreen extends Component {
   render() {
     return (
       <NavigationContainer>
-        <TabBar />
+        <MainStack />
       </NavigationContainer>
     );
   }
