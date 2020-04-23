@@ -6,7 +6,7 @@ import {contactStyle} from './style';
 import Header from './Header';
 import {chatData} from '../../../src/assets/chats.json';
 
-export const contactScreen = () => {
+export const contactScreen = ({navigation}) => {
   const {container, search} = contactStyle;
   const data = chatData;
 
@@ -20,7 +20,7 @@ export const contactScreen = () => {
         style={container}
         data={data}
         renderItem={({item}) => {
-          return <Contacts item={item} />;
+          return <Contacts item={item} navigation={navigation} />;
         }}
         keyExtractor={item => item.name}
       />
