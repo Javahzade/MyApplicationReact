@@ -14,14 +14,14 @@ const InputScreen = props => {
     imgCont,
     logo,
     mail,
-    pass,
+    password,
     userCont,
     enter,
     create,
     forgot,
     text,
   } = titleStyle;
-  const {password, email, mailType, passType, onPress} = props;
+  const {pass, email, mailType, passType, onPress} = props;
   return (
     <View style={{flex: 1}}>
       <View style={imgCont}>
@@ -41,9 +41,9 @@ const InputScreen = props => {
           keyboardType="email-address"
         />
         <TextInput
-          style={pass}
+          style={password}
           onChangeText={str => passType(str)}
-          value={password}
+          value={pass}
           placeholder="Password"
           autoCapitalize="none"
           autoCorrect={false}
