@@ -6,7 +6,12 @@ let initialLogin = {
 
 export const reducers = (state = initialLogin, action) => {
   switch (action.type) {
-    case '':
+    case 'SAVE':
+      return {
+        ...state,
+        isLogin: action.value3,
+      };
+
     default:
       return state;
   }
