@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   KeyboardAvoidingView,
   Text,
@@ -13,7 +13,8 @@ import { saveUser, logUser } from '../../../modules/redux/action';
 
 
 const InputScreen = (props) => {
-  console.log('redux>>>', props)
+  const [mail1, setMailFunc] = useState('');
+  const [password1, setPasswordFunc] = useState('');
   const {
     imgCont,
     logo,
@@ -26,17 +27,10 @@ const InputScreen = (props) => {
     text,
   } = titleStyle;
 
-
-  let pass = '';
-  let email = '';
-
-
-
-
   const onPress = () => {
     const { mail, password } = props
-    if (email && pass) {
-      if (mail == email && password == pass) {  
+    if (mail1 && password1) {
+      if (mail == mail1 && password == password1) {  
         props.saveUser(true);
       } else {
         return alert('Ваш Username или Userpassword неправильный');
@@ -47,7 +41,7 @@ const InputScreen = (props) => {
   };
 
   const onRegistr = () => {
-    props.logUser(email, pass);
+    props.logUser(mail1, password1);
   }
 
   return (
@@ -61,8 +55,7 @@ const InputScreen = (props) => {
       <KeyboardAvoidingView behavior="height" enabled={false} style={userCont}>
         <TextInput
           style={sMail}
-          onChangeText={str => email = str}
-
+          onChangeText={str=>setMailFunc(str)}
           placeholder="Email"
           autoCapitalize="none"
           autoCorrect={false}
@@ -70,8 +63,7 @@ const InputScreen = (props) => {
         />
         <TextInput
           style={sPassword}
-          onChangeText={str => pass = str}
-
+          onChangeText={str=>setPasswordFunc(str)}
           placeholder="Password"
           autoCapitalize="none"
           autoCorrect={false}
@@ -108,4 +100,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(InputScreen);
-
