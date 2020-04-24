@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { titleStyle } from '../../../components/titleStyle';
 import { connect } from 'react-redux';
-import { saveUser } from '../../../modules/redux/action';
+import { saveUser, logUser } from '../../../modules/redux/action';
+
 
 const InputScreen = (props) => {
   console.log('redux>>>', props)
@@ -45,6 +46,10 @@ const InputScreen = (props) => {
     }
   };
 
+  const onRegistr = () => {
+    props.logUser(email, pass);
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <View style={imgCont}>
@@ -75,7 +80,7 @@ const InputScreen = (props) => {
         <TouchableOpacity onPress={onPress} style={enter}>
           <Text style={text}>ВОЙТИ</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={create}>
+        <TouchableOpacity onPress={onRegistr} style={create}>
           <Text style={text}>СОЗДАТЬ НОВЫЙ АККАУНТ</Text>
         </TouchableOpacity>
         <TouchableOpacity style={forgot}>
@@ -95,6 +100,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     saveUser: account => dispatch(saveUser(account)),
+    logUser: (mailInput, passwordInput) => dispatch(logUser(mailInput, passwordInput))
   };
 };
 

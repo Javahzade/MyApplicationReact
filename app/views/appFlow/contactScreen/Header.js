@@ -1,9 +1,12 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 import {headerStyle} from './style';
+import {connect} from 'react-redux';
 
-const Header = () => {
+const Header = (props) => {
   const {container, img, text} = headerStyle;
+  const {mail} =props;
+  const upper = mail.charAt(0).toUpperCase() + mail.substring(1);
   return (
     <View style={container}>
       <TouchableOpacity>
@@ -13,10 +16,19 @@ const Header = () => {
         />
       </TouchableOpacity>
       <View>
-        <Text style={text}>Контакты</Text>
+  <Text style={text}>{upper} / Контакты</Text>
       </View>
     </View>
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    mail: state.mail
+  };
+};
+
+export default connect(
+  mapStateToProps, null
+)(Header);
+

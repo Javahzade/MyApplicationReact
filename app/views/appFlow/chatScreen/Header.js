@@ -6,6 +6,9 @@ import {connect} from 'react-redux';
 
 const Header = (props) => {
   const {container, img, text} = headerStyle;
+  const {mail} =props;
+  const upper = mail.charAt(0).toUpperCase() + mail.substring(1);
+
   return (
     <View style={container}>
       <TouchableOpacity>
@@ -15,7 +18,7 @@ const Header = (props) => {
         />
       </TouchableOpacity>
       <View>
-        <Text style={text}>{props.mail} Чаты</Text>
+        <Text style={text}>{upper} / Чаты</Text>
       </View>
     </View>
   );

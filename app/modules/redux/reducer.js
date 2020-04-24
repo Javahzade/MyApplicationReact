@@ -11,6 +11,12 @@ export const reducers = (state = initialLogin, action) => {
         ...state,
         isLogin: action.isLogin,
       };
+      case 'TODO':
+        return {
+          ...state,
+          mail: action.userMail,
+          password: action.userPassword
+        }
 
     default:
       return state;
