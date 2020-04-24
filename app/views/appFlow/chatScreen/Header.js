@@ -1,8 +1,10 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {Text, View, TouchableOpacity, Image, ShadowPropTypesIOS} from 'react-native';
 import {headerStyle} from './style';
+import {connect} from 'react-redux';
 
-const Header = () => {
+
+const Header = (props) => {
   const {container, img, text} = headerStyle;
   return (
     <View style={container}>
@@ -13,10 +15,20 @@ const Header = () => {
         />
       </TouchableOpacity>
       <View>
-        <Text style={text}>Чаты</Text>
+        <Text style={text}>{props.mail} Чаты</Text>
       </View>
     </View>
   );
 };
+const mapStateToProps = state => {
+  return {
+    mail: state.mail
+  };
+};
 
-export default Header;
+export default connect(
+  mapStateToProps, null
+)(Header);
+
+
+

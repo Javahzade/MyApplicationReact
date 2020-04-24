@@ -1,9 +1,6 @@
 export const saveUser = account => {
-  ({
+  return {
     type: 'SAVE',
-    value1: account.mail,
-    value2: account.password,
-    value3: true,
-  });
+    isLogin: account
+  };
 };
-//?????

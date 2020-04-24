@@ -9,7 +9,7 @@ export const reducers = (state = initialLogin, action) => {
     case 'SAVE':
       return {
         ...state,
-        isLogin: action.value3,
+        isLogin: action.isLogin,
       };
 
     default:

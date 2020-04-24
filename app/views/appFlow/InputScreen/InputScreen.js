@@ -7,23 +7,46 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import {titleStyle} from '../../../components/titleStyle';
+import { titleStyle } from '../../../components/titleStyle';
+import { connect } from 'react-redux';
+import { saveUser } from '../../../modules/redux/action';
 
-const InputScreen = props => {
+const InputScreen = (props) => {
+  console.log('redux>>>', props)
   const {
     imgCont,
     logo,
-    mail,
-    password,
+    sMail,
+    sPassword,
     userCont,
     enter,
     create,
     forgot,
     text,
   } = titleStyle;
-  const {pass, email, mailType, passType, onPress} = props;
+
+
+  let pass = '';
+  let email = '';
+
+
+
+
+  const onPress = () => {
+    const { mail, password } = props
+    if (email && pass) {
+      if (mail == email && password == pass) {  
+        props.saveUser(true);
+      } else {
+        return alert('Ваш Username или Userpassword неправильный');
+      }
+    } else {
+      return alert('Введите Username или Userpassword');
+    }
+  };
+
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <View style={imgCont}>
         <Image
           style={logo}
@@ -32,18 +55,18 @@ const InputScreen = props => {
       </View>
       <KeyboardAvoidingView behavior="height" enabled={false} style={userCont}>
         <TextInput
-          style={mail}
-          onChangeText={str => mailType(str)}
-          value={email}
+          style={sMail}
+          onChangeText={str => email = str}
+
           placeholder="Email"
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
         />
         <TextInput
-          style={password}
-          onChangeText={str => passType(str)}
-          value={pass}
+          style={sPassword}
+          onChangeText={str => pass = str}
+
           placeholder="Password"
           autoCapitalize="none"
           autoCorrect={false}
@@ -56,10 +79,27 @@ const InputScreen = props => {
           <Text style={text}>СОЗДАТЬ НОВЫЙ АККАУНТ</Text>
         </TouchableOpacity>
         <TouchableOpacity style={forgot}>
-          <Text style={[text, {color: 'black'}]}>ЗАБЫЛИ ПАРОЛЬ?</Text>
+          <Text style={[text, { color: 'black' }]}>ЗАБЫЛИ ПАРОЛЬ?</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </View>
   );
 };
-export default InputScreen;
+const mapStateToProps = state => {
+  return {
+    mail: state.mail,
+    password: state.password,
+  };
+
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    saveUser: account => dispatch(saveUser(account)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(InputScreen);
+

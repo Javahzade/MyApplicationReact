@@ -17,12 +17,12 @@ export const titleStyle = StyleSheet.create({
     width: 130,
     height: 130,
   },
-  mail: {
+  sMail: {
     height: 40,
     borderBottomColor: 'gray',
     borderBottomWidth: 0.5,
   },
-  password: {
+  sPassword: {
     height: 40,
   },
   enter: {
