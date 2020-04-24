@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {SafeAreaView} from 'react-native';
 import Entry from './component/Title/Entry';
+import MainScreen from './component/MainScreen';
+import {MyTab} from './navigation/MyTab';
 
 export default class App extends Component {
   constructor(props) {
@@ -9,6 +11,7 @@ export default class App extends Component {
     this.state = {
       email: '',
       password: '',
+      a: 6,
     };
   }
 
@@ -16,20 +19,22 @@ export default class App extends Component {
     const mail = 'admin';
     const pass = 'admin';
     const {email, password} = this.state;
-    if (email&&password){
-    if (mail == email && pass == password) {
-      console.log('Success');
-    }else {
-      alert('Username or password is wrong!');
+    if (email && password) {
+      if (mail == email && pass == password) {
+        this.setState({
+          a: 5,
+        });
+      } else {
+      }
+    } else {
+      return alert('vvedite dannie');
     }
-  }else return alert('vvedite dannie')
-}
+  };
 
   mailType = str => {
     this.setState({
       email: str,
     });
-
   };
 
   passType = str => {
@@ -39,17 +44,22 @@ export default class App extends Component {
   };
 
   render() {
-    const {email, password} = this.state;
-    return (
-      <SafeAreaView style={{flex: 1}}>
-        <Entry
-          mailType={this.mailType}
-          passType={this.passType}
-          onPress={this.onPress}
-          email={email}
-          password={password}
-        />
-      </SafeAreaView>
-    );
+    const {email, password, a} = this.state;
+    switch (a) {
+      case 5:
+        return <MainScreen />;
+      default:
+        return (
+          <SafeAreaView style={{flex: 1}}>
+            <Entry
+              mailType={this.mailType}
+              passType={this.passType}
+              onPress={this.onPress}
+              email={email}
+              password={password}
+            />
+          </SafeAreaView>
+        );
+    }
   }
 }
